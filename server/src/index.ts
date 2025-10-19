@@ -31,7 +31,7 @@ async function main() {
     }, 1000);
 
     // TODO: Add routes
-    app.use('/api/tick', tickRouter);
+    app.use('/tick', tickRouter);
 
     const server = createServer(app);
 
