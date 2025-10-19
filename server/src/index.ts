@@ -5,7 +5,7 @@ import express from 'express';
 import { createServer } from 'http';
 import logRequest from './middleware/log-request';
 
-export const origin = ['http://localhost:5173', 'https://olinkirk.land/flags'];
+export const origin = ['http://localhost:5173', 'https://olinkirk.land'];
 
 main();
 
