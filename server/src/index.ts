@@ -1,3 +1,4 @@
+import tickRouter from './routes/tick-router';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
@@ -8,6 +9,7 @@ export const origin = ['http://localhost:5173', 'https://olinkirk.land/flags'];
 
 main();
 
+export let tick = 0;
 async function main() {
     dotenv.config();
 
@@ -23,7 +25,13 @@ async function main() {
         })
     );
 
+    // Start the tick interval
+    const interval = setInterval(() => {
+        tick++;
+    }, 1000);
+
     // TODO: Add routes
+    app.use('/api/tick', tickRouter);
 
     const server = createServer(app);
 
