@@ -1,14 +1,24 @@
+import axios from 'axios';
+import { createPinia } from 'pinia';
 import { createApp } from 'vue';
 import App from './App.vue';
-import axios from 'axios';
+import { connectToSocketIO } from './connection';
+
+// Create the App and apply plugins
+const app = createApp(App);
+const pinia = createPinia();
+
+// app.use(router); // TODO: Add this later if needed
+// app.use(i18n); // TODO: Add this later if needed
+app.use(pinia);
 
 /**
- * Setup Axios
+ * Setup Connection
  */
 
 // Is 'localhost' in the hostname?
 const isLocalhost = window.location.hostname.includes('localhost');
-const baseURL = isLocalhost
+export const baseURL = isLocalhost
     ? 'http://localhost:3000/'
     : 'https://flags-production-9115.up.railway.app/';
 
@@ -21,4 +31,7 @@ export const server = axios.create({
     }
 });
 
-createApp(App).mount('#app');
+connectToSocketIO();
+
+// Mount the App
+app.mount('#app');

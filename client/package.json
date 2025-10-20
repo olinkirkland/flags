@@ -10,16 +10,19 @@
         "deploy": "vite build && gh-pages -d dist"
     },
     "dependencies": {
-        "@types/axios": "^0.9.36",
         "axios": "^1.12.2",
         "gh-pages": "^6.3.0",
+        "pinia": "^3.0.3",
+        "socket.io-client": "^4.8.1",
         "status-code-enum": "^1.0.0",
         "tsc-alias": "^1.8.16",
         "tsconfig-paths": "^4.2.0",
         "vue": "^3.5.22"
     },
     "devDependencies": {
+        "@types/axios": "^0.9.36",
         "@types/node": "^24.6.0",
+        "@types/socket.io-client": "^1.4.36",
         "@vitejs/plugin-vue": "^6.0.1",
         "@vue/tsconfig": "^0.8.1",
         "typescript": "~5.9.3",

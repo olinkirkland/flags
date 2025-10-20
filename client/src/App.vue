@@ -1,20 +1,14 @@
 <template>
     <div>
         <pre>{{ tick }}</pre>
-        <button @click="updateTick">Update tick</button>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { server } from './main';
+import { storeToRefs } from 'pinia';
+import { useTickStore } from './store/tick-store';
 
-const tick = ref();
-
-async function updateTick() {
-    const response = await server.get('tick');
-    tick.value = response.data;
-}
+const { tick } = storeToRefs(useTickStore());
 </script>
 
 <style lang="scss" scoped></style>
