@@ -1,6 +1,6 @@
-import { tick } from '../index';
 import { Request, Response, Router } from 'express';
 import StatusCode from 'status-code-enum';
+import { tick } from '../tick';
 
 const router = Router();
 

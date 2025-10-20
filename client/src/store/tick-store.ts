@@ -4,7 +4,7 @@ import { ref } from 'vue';
 export const useTickStore = defineStore('tick', () => {
     const tick = ref(0);
 
-    // Functions
+    // Actions
     function setTick(newTick: number) {
         tick.value = newTick;
     }

@@ -9,7 +9,7 @@ export function connectToSocketIO() {
     const options = { reconnectionDelayMax: 10000 };
     const socket = io(baseURL, options);
     socket.on('message', (data: any) => {
-        console.log(data);
-        useTickStore().setTick(data.tick);
+        // useTickStore().setTick(data.tick);
+        // TODO: Update the game model
     });
 }
