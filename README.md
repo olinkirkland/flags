@@ -6,7 +6,7 @@
   <p align="center">
     <em>Flag Guesser</em> is a multiplayer game where players can guess flags in pictionary-style gameplay.
     <br />
-    <a href="https://onlineinthedark.com">https://www.olinkirk.land/flags</a>
+    <a href="https://www.olinkirk.land/flags">https://www.olinkirk.land/flags</a>
     ·
     <a href="https://trello.com/b/wgho6OZ5/flag-guesser">Trello board</a>
   </p>
