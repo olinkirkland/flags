@@ -1,51 +1,17 @@
 <template>
-    <div class="container">
-        <div class="flex">
-            <button @click="createRoom">Create new Room</button>
-            <button @click="fetchRooms">
-                <i class="fas fa-sync"></i>
-                Update room list
-            </button>
-        </div>
-
-        <ul class="rooms">
-            <li v-for="room in rooms">
-                <p>{{ room.name }}</p>
-                <button @click="joinRoom(room)">Join</button>
-            </li>
-        </ul>
+    <div class="app-layout">
+        <router-view name="page" v-slot="{ Component, route }">
+            <div class="pattern"></div>
+            <Transition name="page-transition" mode="out-in">
+                <component :is="Component" />
+            </Transition>
+        </router-view>
+        <!-- <the-modal-container /> -->
+        <!-- <the-tooltip-container /> -->
     </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue';
-import { Room } from './room';
-import { server } from './main';
-
-const rooms = ref<Room[]>([]);
-fetchRooms();
-
-async function fetchRooms() {
-    const response = await server.get('/rooms');
-    if (!response.data) return;
-    rooms.value = response.data as Room[];
-}
-
-async function createRoom() {
-    const options = {
-        name: 'someroomname'
-    };
-
-    const response = await server.post('/rooms', { options });
-    // TODO: Handle errors
-    // TODO: Join the created room
-}
-
-async function joinRoom(room: Room) {
-    const { id } = room;
-    
-}
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss">
 @use 'assets/scss/reset.scss';
@@ -63,5 +29,15 @@ async function joinRoom(room: Room) {
 .room {
     display: flex;
     flex-direction: column;
+}
+
+.page-transition-enter-active,
+.page-transition-leave-active {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.page-transition-enter-from,
+.page-transition-leave-to {
+    opacity: 0;
+    transform: translateY(1rem);
 }
 </style>

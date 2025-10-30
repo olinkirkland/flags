@@ -1,6 +1,5 @@
 import io from 'socket.io-client';
 import { baseURL } from './main';
-import { useTickStore } from './store/tick-store';
 
 /**
  * Connect to the socketIO server
