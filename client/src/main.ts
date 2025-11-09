@@ -5,6 +5,7 @@ import App from './App.vue';
 import Card from './components/Card.vue';
 import { connectToSocketIO } from './connection';
 import { router } from './router';
+import PageCard from './components/PageCard.vue';
 
 // Create the App and apply plugins
 const app = createApp(App);
@@ -17,6 +18,7 @@ app.use(pinia);
 /**
  * Components
  */
+app.component('PageCard', PageCard);
 app.component('Card', Card);
 
 /**

@@ -6,7 +6,7 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
     plugins: [vue()],
-    server: { host: true },
+    server: { host: true }, // For external IP access
     base: mode === 'development' ? '/' : '/flags/',
     resolve: {
         alias: {

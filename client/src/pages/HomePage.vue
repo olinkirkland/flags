@@ -1,5 +1,5 @@
 <template>
-    <Card>
+    <PageCard>
         <h1>Home Page</h1>
         <div class="flex">
             <button @click="joinAvailable">Quick Join</button>
@@ -16,7 +16,7 @@
                 <button @click="joinRoom(room)">Join</button>
             </li>
         </ul>
-    </Card>
+    </PageCard>
 </template>
 
 <script lang="ts" setup>

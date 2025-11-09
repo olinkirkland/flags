@@ -20,6 +20,14 @@
 </style>
 
 <style lang="scss" scoped>
+.app-layout {
+    overflow: hidden;
+    width: 100%;
+    height: 100dvh;
+    background-color: var(--background);
+    background-image: url('/assets/patterns/rough-diagonal.png');
+}
+
 .container {
     display: flex;
     flex-direction: column;

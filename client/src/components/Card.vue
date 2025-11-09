@@ -6,7 +6,10 @@
 
 <style lang="scss" scoped>
 .card {
-    border: 1px solid black;
+    border: 1px solid var(--border);
+    background-color: var(--background);
     padding: 2rem;
+    border-radius: 5px;
+    box-shadow: var(--shadow-md);
 }
 </style>
