@@ -6,7 +6,6 @@ import { RouterOptions, createRouter, createWebHistory } from 'vue-router';
 
 export const Page = {
     HOME: 'home-page',
-    ROOM_LIST: 'room-list-page',
     ROOM: 'room-page',
     LOST: 'lost-page'
 };
@@ -18,13 +17,6 @@ const routes = [
             page: HomePage
         },
         name: Page.HOME
-    },
-    {
-        path: '/rooms',
-        components: {
-            page: RoomListPage
-        },
-        name: Page.ROOM_LIST
     },
     {
         path: '/rooms/:id',
