@@ -10,3 +10,8 @@ export function getRandomRoomName(): string {
 export function addRoom(room: Room): void {
     rooms.push(room);
 }
+
+export function subscribeToRoom(roomId: string, userId: string): void {
+    // Subscribe to the room's id for real-time updates
+    
+}

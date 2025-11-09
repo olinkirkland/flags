@@ -1,28 +1,34 @@
 <template>
     <PageCard>
-        <h1>Home Page</h1>
+        <p v-if="socketId" class="socket-id">Socket Id: {{ socketId }}</p>
+        <div v-if="socketId">
+            <h1>Flag Guesser</h1>
 
-        <div class="flex">
-            <button @click="joinAvailable">Quick Play</button>
-            <button @click="createRoom">
-                <i class="fas fa-plus"></i>
-                Create new Game
-            </button>
-            <button @click="fetchRooms">
-                <i class="fas fa-sync"></i>
-                Refresh
-            </button>
-        </div>
-
-        <ul class="rooms">
-            <li v-for="room in rooms">
-                <p>{{ room.name }}</p>
-                <button @click="joinRoom(room)">
-                    <i class="fas fa-sign-in-alt"></i>
-                    Join
+            <div class="flex">
+                <button @click="joinAvailable">Quick Play</button>
+                <button @click="createRoom">
+                    <i class="fas fa-plus"></i>
+                    Create new Game
                 </button>
-            </li>
-        </ul>
+                <button @click="fetchRooms">
+                    <i class="fas fa-sync"></i>
+                    Refresh
+                </button>
+            </div>
+
+            <ul v-if="rooms.length > 0" class="rooms">
+                <li v-for="room in rooms">
+                    <p>{{ room.name }}</p>
+                    <button @click="joinRoom(room)">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Join
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div v-else>
+            <p>Connecting to server...</p>
+        </div>
     </PageCard>
 </template>
 
@@ -30,7 +36,11 @@
 import { server } from '@/main';
 import { Room } from '@/room';
 import { Page, router } from '@/router';
-import { ref } from 'vue';
+import { useUserStore } from '@/store/user-store';
+import { computed, ref } from 'vue';
+
+const userStore = useUserStore();
+const socketId = computed(() => userStore.socketId);
 
 const rooms = ref<Room[]>([]);
 fetchRooms();
@@ -87,5 +97,12 @@ ul.rooms {
             padding-bottom: 1rem;
         }
     }
+}
+
+.socket-id {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: var(--border);
 }
 </style>

@@ -34,9 +34,11 @@ const routes = [
     }
 ];
 
-// Todo createWebHistory fix
+// @ts-ignore
+const localURL = import.meta.env.BASE_URL;
+console.log('localURL:', localURL);
 const routerOptions = {
-    history: createWebHistory(),
+    history: createWebHistory(localURL),
     routes
 };
 

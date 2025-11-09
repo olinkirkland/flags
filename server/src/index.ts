@@ -43,6 +43,9 @@ ioServer.on('connection', async (socket) => {
     // A user connected
     console.log('User connected, socket', socket.id);
 
+    // Let them know their socket id
+    socket.emit('socket-id', socket.id);
+
     // A user disconnected
     socket.on('disconnect', async () => {
         console.log('User disconnected, socket', socket.id);

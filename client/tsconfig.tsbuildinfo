@@ -1,0 +1,1 @@
+{"root":["./src/connection.ts","./src/main.ts","./src/room.ts","./src/router/index.ts","./src/store/game-store.ts","./src/store/tick-store.ts","./src/app.vue","./src/components/card.vue","./src/components/pagecard.vue","./src/pages/homepage.vue","./src/pages/lostpage.vue","./src/pages/roomlistpage.vue","./src/pages/roompage.vue"],"version":"5.9.3"}

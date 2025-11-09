@@ -1,8 +1,8 @@
 <template>
     <PageCard>
         <div v-if="room">
-            <section>ROOM PAGE</section>
-            <pre>{{ id }}</pre>
+            <section>{{ room.name }}</section>
+            <pre>{{ room }}</pre>
             <button @click="leaveRoom">Leave Room</button>
         </div>
         <div v-else>Joining room...</div>
