@@ -1,19 +1,26 @@
 <template>
     <PageCard>
         <h1>Home Page</h1>
+
         <div class="flex">
-            <button @click="joinAvailable">Quick Join</button>
-            <button @click="createRoom">Create new Room</button>
+            <button @click="joinAvailable">Quick Play</button>
+            <button @click="createRoom">
+                <i class="fas fa-plus"></i>
+                Create new Game
+            </button>
             <button @click="fetchRooms">
                 <i class="fas fa-sync"></i>
-                Update room list
+                Refresh
             </button>
         </div>
 
         <ul class="rooms">
             <li v-for="room in rooms">
                 <p>{{ room.name }}</p>
-                <button @click="joinRoom(room)">Join</button>
+                <button @click="joinRoom(room)">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Join
+                </button>
             </li>
         </ul>
     </PageCard>
@@ -60,4 +67,25 @@ async function joinAvailable() {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+ul.rooms {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--surface-dark);
+    > li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid var(--surface-dark);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+        }
+    }
+}
+</style>
